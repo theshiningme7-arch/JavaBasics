@@ -1,0 +1,246 @@
+JAVA OOPS (OBJECT-ORIENTED PROGRAMMING) – COMPLETE NOTES
+
+---
+
+🔹 INTRODUCTION TO OOPS
+
+Definition:
+Object-Oriented Programming (OOP) is a paradigm that organizes software design around objects.  
+Objects represent real-world entities with attributes (data) and behaviors (methods).
+
+Purpose:
+- Make programs modular
+- Promote code reuse
+- Improve readability and maintainability
+- Model real-world problems effectively
+
+---
+
+🔹 BASIC BUILDING BLOCKS
+
+1. CLASS
+- Blueprint for creating objects.
+- Contains variables (fields) and methods (functions).
+
+Example:
+class Car {
+   String brand;
+   int speed;
+   void drive() { System.out.println("Driving..."); }
+}
+
+2. OBJECT
+- Instance of a class.
+- Created using `new` keyword.
+
+Example:
+Car c1 = new Car();
+c1.brand = "Honda";
+c1.speed = 120;
+c1.drive();
+
+3. CONSTRUCTOR
+- Special method used to initialize objects.
+- Same name as class, no return type.
+
+Example:
+class Student {
+   String name;
+   Student(String n) { name = n; }
+}
+Student s1 = new Student("Ravi");
+
+---
+
+🔹 FOUR PILLARS OF OOPS
+
+1. ENCAPSULATION
+Definition:
+Wrapping data and methods together inside a class.  
+Protects data by restricting direct access.
+
+Rule:
+- Use private variables
+- Provide public getter/setter methods
+
+Example:
+class Student {
+   private int age;
+   public void setAge(int a) { age = a; }
+   public int getAge() { return age; }
+}
+
+Flowchart:
+Data → Hidden inside class → Access via methods
+
+Practice:
+Q: Why encapsulation?
+A: To protect data and control access.
+
+---
+
+2. INHERITANCE
+Definition:
+One class acquires properties and methods of another class.
+
+Rule:
+- Use "extends" keyword
+- Promotes code reuse
+
+Example:
+class Animal {
+   void eat() { System.out.println("Eating"); }
+}
+class Dog extends Animal {
+   void bark() { System.out.println("Barking"); }
+}
+
+Dog d = new Dog();
+d.eat();  // Inherited
+d.bark(); // Own method
+
+Flowchart:
+Parent Class → Child Class → Reuse methods
+
+Practice:
+Q: Why inheritance?
+A: To reuse code and establish relationships.
+
+---
+
+3. POLYMORPHISM
+Definition:
+Ability of a method to perform different tasks depending on context.
+
+Types:
+- Compile-time (Method Overloading)
+- Runtime (Method Overriding)
+
+Example (Overloading):
+class Calculator {
+   int add(int a, int b) { return a+b; }
+   double add(double a, double b) { return a+b; }
+}
+
+Example (Overriding):
+class Animal {
+   void sound() { System.out.println("Animal sound"); }
+}
+class Dog extends Animal {
+   void sound() { System.out.println("Bark"); }
+}
+
+Flowchart:
+Same method → Different behavior
+
+Practice:
+Q: Why polymorphism?
+A: To achieve flexibility and dynamic behavior.
+
+---
+
+4. ABSTRACTION
+Definition:
+Hiding implementation details and showing only essential features.
+
+Rule:
+- Use abstract classes or interfaces
+
+Example:
+abstract class Shape {
+   abstract void draw();
+}
+class Circle extends Shape {
+   void draw() { System.out.println("Drawing Circle"); }
+}
+
+Flowchart:
+Abstract class → Child class → Implementation
+
+Practice:
+Q: Why abstraction?
+A: To reduce complexity and increase security.
+
+---
+
+🔹 OTHER OOPS CONCEPTS
+
+1. INTERFACE
+- Defines a contract (methods without body).
+- Classes must implement it.
+
+Example:
+interface Animal {
+   void sound();
+}
+class Dog implements Animal {
+   public void sound() { System.out.println("Bark"); }
+}
+
+2. ENUM
+- Special class representing fixed constants.
+
+Example:
+enum Day { MONDAY, TUESDAY, WEDNESDAY }
+Day today = Day.MONDAY;
+
+3. ACCESS MODIFIERS
+- Control visibility of classes, methods, variables.
+- public, private, protected, default
+
+---
+
+🔹 DIFFERENCES SUMMARY
+
+Encapsulation → Data hiding  
+Inheritance → Code reuse  
+Polymorphism → Many forms (flexibility)  
+Abstraction → Hiding details  
+
+---
+
+🔹 PRACTICE QUESTIONS
+
+1. Predict the output:
+class A {
+   void show() { System.out.println("Class A"); }
+}
+class B extends A {
+   void show() { System.out.println("Class B"); }
+}
+public class Test {
+   public static void main(String[] args) {
+      A obj = new B();
+      obj.show();
+   }
+}
+
+Answer → Class B (runtime polymorphism)
+
+---
+
+2. True/False
+- Encapsulation hides data → True
+- Inheritance reduces code duplication → True
+- Strings are primitive in Java → False
+
+---
+
+3. Short Answer
+Q: Which OOP pillar allows multiple forms of the same method?
+A: Polymorphism
+
+Q: Which OOP pillar hides implementation details?
+A: Abstraction
+
+---
+
+END OF NOTES
+
+OOP in Java makes programs:
+- Modular
+- Reusable
+- Flexible
+- Secure
+
+Mastering the four pillars (Encapsulation, Inheritance, Polymorphism, Abstraction) is key to becoming a strong Java programmer.

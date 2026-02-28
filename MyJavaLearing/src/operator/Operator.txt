@@ -1,0 +1,514 @@
+JAVA NON-PRIMITIVE DATA TYPES 
+
+---
+
+WHAT ARE NON-PRIMITIVE DATA TYPES?
+
+Definition:
+Non-primitive (or reference) data types are created by programmers or provided by Java libraries.  
+They store references (addresses) to objects, not raw values.
+
+Examples:
+- String
+- Arrays
+- Classes
+- Interfaces
+
+---
+
+1. STRING
+
+Definition:
+A String is a sequence of characters enclosed in double quotes " ".
+
+Flowchart:
+Input characters → Stored as String object → Used in program
+
+Example:
+String name = "Suprada";
+
+System.out.println(name.toUpperCase()); // SUPRADA
+System.out.println(name.length());      // 7
+
+Q: Is String primitive?
+A: No, it is a class in Java.
+
+---
+
+2. ARRAYS
+
+Definition:
+An array stores multiple values of the same type in a single variable.
+
+Flowchart:
+Array → Index → Value
+
+Example:
+int[] marks = {85, 90, 78};
+
+System.out.println(marks[0]); // 85
+System.out.println(marks[2]); // 78
+
+Q: What is the index of first element?
+A: 0 (zero-based indexing).
+
+---
+
+3. CLASSES
+
+Definition:
+A class is a blueprint for creating objects.
+
+Flowchart:
+Class → Object → Methods/Variables → Behavior
+
+Example:
+class Student {
+   String name;
+   int age;
+}
+
+Student s1 = new Student();
+s1.name = "Ravi";
+s1.age = 20;
+
+System.out.println(s1.name); // Ravi
+
+Q: Why use classes?
+A: To group data and behavior together.
+
+---
+
+4. OBJECTS
+
+Definition:
+Objects are instances of classes.
+
+Flowchart:
+Class → Create Object → Access properties
+
+Example:
+class Car {
+   String brand;
+   int speed;
+}
+
+Car c1 = new Car();
+c1.brand = "Honda";
+c1.speed = 120;
+
+System.out.println(c1.brand); // Honda
+
+---
+
+5. INTERFACES
+
+Definition:
+An interface defines a contract (methods without body) that classes must implement.
+
+Flowchart:
+Interface → Implement in Class → Provide method body
+
+Example:
+interface Animal {
+   void sound();
+}
+
+class Dog implements Animal {
+   public void sound() {
+      System.out.println("Bark");
+   }
+}
+
+Dog d = new Dog();
+d.sound(); // Bark
+
+Q: Why use interfaces?
+A: To achieve abstraction and multiple inheritance.
+
+---
+
+6. ENUMS
+
+Definition:
+Enums are special classes that represent fixed sets of constants.
+
+Example:
+enum Day { MONDAY, TUESDAY, WEDNESDAY }
+
+Day today = Day.MONDAY;
+System.out.println(today); // MONDAY
+
+Q: Why use enums?
+A: To represent fixed categories (days, directions, etc.).
+
+---
+
+7. WRAPPER CLASSES
+
+Definition:
+Wrapper classes convert primitive types into objects.
+
+Examples:
+Integer, Double, Boolean, Character
+
+Flowchart:
+Primitive → Wrapper → Object methods available
+
+Example:
+int x = 10;
+Integer y = Integer.valueOf(x);
+
+System.out.println(y.toString()); // "10"
+
+---
+JAVA NAMING CONVENTIONS 
+
+---
+
+WHY NAMING CONVENTIONS?
+
+Definition:
+Naming conventions are rules for how identifiers (names) should be written in Java.
+
+Purpose:
+- Improve readability
+- Reduce confusion
+- Make teamwork easier
+- Help new learners understand code faster
+
+---
+
+1. CLASS & INTERFACE NAMES
+
+Rule:
+- Use **PascalCase** (UpperCamelCase).
+- Names should be nouns or noun phrases.
+- No underscores or hyphens.
+
+Examples:
+✔ CustomerAccount
+✔ Student
+✘ customerAccount   (starts lowercase)
+✘ Customer_Account  (underscore)
+
+---
+
+2. METHOD NAMES
+
+Rule:
+- Use **camelCase** (first word lowercase, subsequent words capitalized).
+- Names should be verbs or verb phrases.
+- Describe the action performed.
+
+Examples:
+✔ calculateTotal()
+✔ printReport()
+✔ getName()
+
+---
+
+3. VARIABLE NAMES
+
+Rule:
+- Use **camelCase**.
+- Names should be meaningful and describe the data.
+- Start with a lowercase letter.
+
+Examples:
+✔ int age;
+✔ String studentName;
+✔ double accountBalance;
+
+✘ int AGE;   (all caps reserved for constants)
+
+---
+
+4. CONSTANTS
+
+Rule:
+- Use **UPPERCASE letters**.
+- Words separated by underscores.
+- Represent fixed values.
+
+Examples:
+✔ final int MAX_SPEED = 120;
+✔ final double PI = 3.14159;
+
+---
+
+5. PACKAGE NAMES
+
+Rule:
+- Always lowercase.
+- Use reverse domain name style for uniqueness.
+
+Examples:
+✔ com.company.project
+✔ org.example.utility
+
+✘ MyPackage   (uppercase not allowed)
+
+---
+
+6. ENUM NAMES
+
+Rule:
+- Enum type names use PascalCase.
+- Enum constants use UPPERCASE.
+
+Example:
+enum Day { MONDAY, TUESDAY, WEDNESDAY }
+
+---
+
+7. ANNOTATIONS
+
+Rule:
+- Annotation names use PascalCase.
+- Start with @ when used.
+
+Example:
+✔ @Override
+✔ @Deprecated
+
+---
+
+Q&A SECTION
+
+Q: Why not use spaces in names?
+A: Java identifiers cannot contain spaces. Use camelCase or PascalCase instead.
+
+Q: Why constants in uppercase?
+A: To distinguish fixed values from variables.
+
+Q: Can variable names start with a number?
+A: No, they must start with a letter, underscore, or dollar sign.
+
+---
+
+JAVA OPERATORS 
+
+---
+
+WHAT IS AN OPERATOR?
+
+Definition:
+An operator is a symbol that performs an action on values (operands).
+
+Example:
+7 + 2
+Here + is the operator.
+7 and 2 are operands.
+
+---
+
+1. ARITHMETIC OPERATORS
+
+Definition:
+Used for basic math calculations.
+
+Operators:
++ Addition
+- Subtraction
+* Multiplication
+/ Division
+% Modulus (Remainder)
+
+Flowchart:
+Number1 → Operator → Number2 → Result
+
+Example:
+int a = 15;
+int b = 4;
+
+a + b = 19
+a - b = 11
+a * b = 60
+a / b = 3
+a % b = 3
+
+Q: What does % give?
+A: The remainder after division.
+
+---
+
+2. ASSIGNMENT OPERATORS
+
+Definition:
+Used to assign values to variables.
+
+Operators:
+=   Assign
++=  Add and assign // x= x+(?)
+-=  Subtract and assign//x =x+(?)
+*=  Multiply and assign//x = x*(?)
+/=  Divide and assign//x = x/(?)
+%=  Modulus and assign// x= x%(?)
+
+Flowchart:
+Variable → Operation → Store back in same variable
+
+Example:
+int x = 10;
+x -= 4;   // x = x - 4 → 6
+x /= 2;   // x = x / 2 → 3
+
+Q: Why shorthand?
+A: Because x = x - 4 is shortened to x -= 4.
+
+---
+
+3. COMPARISON (RELATIONAL) OPERATORS
+
+Definition:
+Compare two values → return true/false.
+
+Operators:
+>   Greater than
+<   Less than
+>=  Greater or equal
+<=  Less or equal
+==  Equal Equal to
+!=  Not equal to
+
+Example:
+int p = 8;
+int q = 12;
+
+p > q  → false
+p < q  → true
+p != q → true
+
+Q: What type of result do they give?
+A: Boolean (true/false).
+
+---
+
+4. LOGICAL OPERATORS
+
+Definition:
+Used to combine conditions.
+
+Operators:
+&&  AND
+||  OR
+!   NOT
+
+Truth Tables:
+
+AND (&&) true=1, false =0(Multiply)
+A     B     A && B
+true  true   true  1*1=1
+true  false  false 1*0=0
+false true   false 0*1=0
+false false  false 0*0=0
+
+OR (||) (Addition)
+A     B     A || B
+true  true   true 1+1=1
+true  false  true 1+0=1
+false true   true 0+1=1
+false false  false 0+0=0
+
+NOT (!)
+A      !A
+true   false !1=0
+false  true !0 =1
+
+Flow Example:
+int age = 19;
+boolean hasTicket = false;
+
+(age >= 18 && hasTicket)
+→ true && false → false
+
+---
+
+5. UNARY OPERATORS
+
+Definition:
+Work on a single operand.
+
+Operators:
+++ Increment
+-- Decrement
+
+Types:
+Pre-increment (++a) → increase first, then use
+Post-increment (a++) → use first, then increase
+
+Example:
+int k = 5;
+
+System.out.println(++k);  // 6
+System.out.println(k++);  // 6
+System.out.println(k);    // 7
+pre decrement (--a)
+post decrement(a--)
+---
+
+6. BITWISE OPERATORS
+
+Definition:
+Work on binary digits (0/1).
+
+Operators:
+&  AND
+|  OR
+^  XOR
+~  NOT
+<< Left Shift
+>> Right Shift
+
+Examples:
+
+Bitwise AND (&)[multiply]
+6 = 0110
+3 = 0011
+6 & 3 = 0010 → 2
+
+Bitwise OR (|)(Addition)
+6 = 0110
+3 = 0011
+6 | 3 = 0111 → 7
+
+Bitwise XOR (^) [same = 0; different =1]
+6 = 0110
+3 = 0011
+6 ^ 3 = 0101 → 5
+
+Bitwise NOT (~) [~n = (-n-1)]
+4 = 0100
+~4 = -(4+1) = -5
+-4 =(-(-4)-1)=3
+
+Left Shift (<<)
+5 = 0101
+5 << 1 = 1010 → 10
+
+Right Shift (>>)
+20 = 10100
+20 >> 2 = 00101 → 5
+
+---
+
+7. TERNARY OPERATOR
+
+Definition:
+Short form of if-else.
+
+Syntax:
+(condition) ? value_if_true : value_if_false;
+
+Example:
+int marks = 45;
+String result = (marks >= 50) ? "Pass" : "Fail";
+
+Output → Fail
+
+Flowchart:
+Condition → True → First Value
+           → False → Second Value
+
+--

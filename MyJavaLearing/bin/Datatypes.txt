@@ -1,0 +1,200 @@
+#  Java Quick Notes
+
+### Why Java Was Created
+- Created in 1991 by James Gosling (Sun Microsystems).  
+- Problems with C/C++: platform dependent, manual memory management, unsafe for internet, complex.  
+- Java solved this with: secure, simple, reliable, platform independent language.  
+- Motto: **WORA – Write Once, Run Anywhere**.
+
+---
+
+### Platform Dependent vs Independent
+- **Platform = OS + Hardware**  
+- C/C++: Source → Machine Code → Runs only on that OS.  
+- Java: Source → Bytecode → JVM → Machine Code → Runs anywhere.
+
+---
+
+### Java Execution Process
+1. Write code → `file.java`  
+2. Compile → `javac file.java` → `file.class` (bytecode)  
+3. Run → `java file` → JVM executes bytecode.  
+
+---
+
+### JVM, JRE, JDK
+- **JVM**: Runs bytecode.  
+- **JRE**: JVM + libraries (to run programs).  
+- **JDK**: JRE + compiler + tools (to develop programs).  
+- To **develop** → JDK, to **run only** → JRE.
+
+---
+
+### Bytecode
+- Intermediate code after compilation.  
+- Not machine code, understood by JVM.  
+- Reason Java is platform independent.
+
+---
+
+### Compiled or Interpreted?
+- Both.  
+- Compiled → `javac` → bytecode.  
+- Interpreted → JVM executes bytecode.  
+- JIT compiler → converts frequent bytecode to native machine code for speed.
+
+---
+
+### Why Java is Secure
+- No pointers.  
+- Automatic memory management (Garbage Collector).  
+- Bytecode verification.  
+- Sandboxed execution.
+
+---
+
+### Memory Structure in Java
+- **Stack** → method calls + local variables.  
+- **Heap** → objects.  
+
+---
+
+### Everything in Java is Inside a Class
+- Purely object-oriented (except primitives).  
+- No standalone functions.  
+
+---
+
+### Entry Point
+```java
+public static void main(String[] args)
+```
+- `main` is static → JVM calls without creating object.
+
+---
+
+### Java Philosophy
+- Simplicity over complexity.  
+- Automatic memory management.  
+- Strong type checking.  
+- Object-oriented design.  
+- Platform independence.  
+
+---
+
+### Must-Know Before Datatypes
+- Why Java was created.  
+- JVM, JRE, JDK.  
+- Bytecode.  
+- Execution process.  
+- Platform independence.  
+- Stack vs Heap.  
+- Why no pointers. 
+
+###Objects
+- An object is an instance of a class.
+- It represents a real-world entity with state (data/fields) and behavior (methods).
+- Example: If Car is a class, then myCar is an object of that class.
+- Objects are created using the new keyword, e.g., Car myCar = new Car();
+
+###Classes
+- A class is a blueprint or template used to create objects.
+- It defines the fields (variables) and methods (functions) that its objects will have.
+
+class Car {
+    String color;
+    void drive() {
+        System.out.println("Car is driving");
+    }
+}
+
+ ###Methods
+- A method is a block of code inside a class that performs a specific task.
+- Methods define the behavior of objects.
+- They can take parameters, return values, or simply execute logic.
+void startEngine() {
+    System.out.println("Engine started");
+}
+
+
+---
+###Comments in java
+-used to explain Java code
+-used to prevent execution when testing alternative code.
+-
+###Single-line Comments
+Any text between // and the end of the line is ignored by Java (will not be executed).
+### Java Multi-line Comments
+/* ....*/=> anything between this will be ignored by java.
+
+###Variables in Java
+-syntax: type variableName = value;
+-Final Variables- 
+- When we don't want others (or yourself) to overwrite existing values, use the final keyword 
+-(this will declare the variable as "final" or "constant", which means unchangeable and read-only)
+final int myNum = 15;
+myNum = 20;//error
+
+###Datatypes
+Perfect — here’s a **short, simple, and effective table of Java data types** with their classification. 
+This is exactly what students need for quick revision.
+
+---
+
+# Java Data Types 
+
+| **Category**        | **Type**        | **Size** (approx) | **Example**        | **Notes** |
+|----------------------|-----------------|-------------------|--------------------|-----------|
+| **Primitive**        | byte            | 1 byte            | `byte b = 10;`     | Small integers (-128 to 127) |
+|                      | short           | 2 bytes           | `short s = 1000;`  | Medium integers |
+|                      | int             | 4 bytes           | `int x = 50000;`   | Default integer type |
+|                      | long            | 8 bytes           | `long l = 100000L;`| Large integers |
+|                      | float           | 4 bytes           | `float f = 3.14f;` | Decimal numbers (less precision) |
+|                      | double          | 8 bytes           | `double d = 3.14159;` | Decimal numbers (high precision) |
+|                      | char            | 2 bytes           | `char c = 'A';`    | Single character (Unicode) |
+|                      | boolean         | 1 bit (JVM uses 1 byte) | `boolean flag = true;` | True/False values |
+| **Non-Primitive**    | String          | varies            | `String s = "Java";` | Sequence of characters |
+|                      | Arrays          | varies            | `int[] arr = {1,2,3};` | Collection of same type |
+|                      | Classes         | varies            | `class Student {...}` | User-defined types |
+|                      | Interfaces      | varies            | `interface Shape {...}` | Contract for classes |
+
+---
+
+### Key Points 
+- **Primitive types**: 8 fixed, predefined by Java.  
+- **Non-primitive types**: Created by programmer (Strings, Arrays, Classes, Interfaces).  
+- **Default values**:  
+  - int → 0  
+  - float → 0.0  
+  - boolean → false  
+  - object references → null  
+- **String** is not primitive, but widely used like one.  
+- Interview tip: Always mention **Java has 8 primitive data types**.  
+
+---
+
+# Java Data Types with Ranges
+
+| **Type**   | **Size** | **Range** (approx)                                | **Example** |
+|------------|----------|---------------------------------------------------|-------------|
+| **byte**   | 1 byte   | -2^7 to 2^7 - 1 → **-128 to +127**                | `byte b = 10;` |
+| **short**  | 2 bytes  | -2^15 to 2^15 - 1 → **-32,768 to +32,767**        | `short s = 1000;` |
+| **int**    | 4 bytes  | -2^31 to 2^31 - 1 → **-2.1 × 10^9 to +2.1 × 10^9**| `int x = 50000;` |
+| **long**   | 8 bytes  | -2^63 to 2^63 - 1 → **-9.2 × 10^18 to +9.2 × 10^18**| `long l = 100000L;` |
+| **float**  | 4 bytes  | ~ ±3.4 × 10^-38 to ±3.4 × 10^38                   | `float f = 3.14f;` |
+| **double** | 8 bytes  | ~ ±1.7 × 10^-308 to ±1.7 × 10^308                 | `double d = 3.14159;` |
+| **char**   | 2 bytes  | Unicode 0 to 65,535 → **‘\u0000’ to ‘\uFFFF’**    | `char c = 'A';` |
+| **boolean**| 1 bit (JVM uses 1 byte) | **true / false**                   | `boolean flag = true;` |
+
+---
+
+### 🔑 Key Points 
+- **8 primitive types** in Java: byte, short, int, long, float, double, char, boolean.  
+- **Ranges** are based on powers of 2 (easy to remember).  
+- **Default values**:  
+  - int → 0  
+  - float/double → 0.0  
+  - boolean → false  
+  - char → `'\u0000'`  
+  - object references → null  
+- **String, Arrays, Classes, Interfaces** → Non-primitive types.  

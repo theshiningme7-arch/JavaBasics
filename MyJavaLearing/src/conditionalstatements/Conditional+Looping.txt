@@ -1,0 +1,300 @@
+JAVA CONDITIONAL & LOOPING STATEMENTS 
+
+---
+=> SCANNER CLASS
+
+Definition:
+Scanner is a class in java.util package used to take input from the user.
+
+Steps:
+1. Import java.util.Scanner
+2. Create Scanner object
+3. Use methods to read input
+4. Close scanner
+
+Common Methods:
+- nextInt() → reads integer
+- nextDouble() → reads decimal
+- nextLine() → reads full string
+- next() → reads single word
+- nextBoolean() → reads true/false
+
+Example:
+import java.util.Scanner;
+
+public class ScannerDemo {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+
+      System.out.print("Enter your age: ");
+      int age = sc.nextInt();
+
+      sc.nextLine(); // consume newline
+      System.out.print("Enter your name: ");
+      String name = sc.nextLine();
+
+      System.out.println("Hello " + name + ", you are " + age + " years old.");
+
+      sc.close();
+   }
+}
+
+Flowchart:
+User Input → Scanner → Read value → Store in variable → Use in program
+
+---
+
+
+🔹 CONDITIONAL STATEMENTS
+
+Definition:
+Conditional statements allow programs to make decisions.  
+They check conditions (true/false) and execute code accordingly.
+
+---
+
+1. IF STATEMENT
+
+Rule:
+Executes code only if condition is true.
+
+Flowchart:
+Condition → True → Execute block
+           → False → Skip block
+
+Example:
+int age = 20;
+if (age >= 18) {
+   System.out.println("Eligible to vote");
+}
+
+Practice:
+Q: What will be printed if age = 15?
+A: Nothing (condition false).
+
+---
+
+2. IF-ELSE STATEMENT
+
+Rule:
+Executes one block if true, another if false.
+
+Example:
+int marks = 45;
+if (marks >= 50) {
+   System.out.println("Pass");
+} else {
+   System.out.println("Fail");
+}
+
+Flowchart:
+Condition → True → Block A
+           → False → Block B
+
+Practice:
+Q: marks = 60 → Output?
+A: Pass
+
+---
+
+3. ELSE-IF LADDER
+
+Rule:
+Checks multiple conditions in sequence.
+
+Example:
+int score = 85;
+if (score >= 90) {
+   System.out.println("Grade A");
+} else if (score >= 75) {
+   System.out.println("Grade B");
+} else {
+   System.out.println("Grade C");
+}
+
+Practice:
+Q: score = 70 → Output?
+A: Grade C
+
+---
+
+4. SWITCH STATEMENT
+
+Rule:
+Used when variable has multiple fixed values.
+
+Syntax:
+switch(variable) {
+   case value1: code; break;
+   case value2: code; break;
+   default: code;
+}
+
+Example:
+int day = 3;
+switch(day) {
+   case 1: System.out.println("Monday"); break;
+   case 2: System.out.println("Tuesday"); break;
+   case 3: System.out.println("Wednesday"); break;
+   default: System.out.println("Invalid day");
+}
+
+Practice:
+Q: day = 5 → Output?
+A: Invalid day
+
+ENHANCED SWITCH STATEMENT
+
+Definition:
+Enhanced switch (introduced in Java 14) is a modern version of the traditional switch statement.  
+It uses arrow syntax (->) and can directly return values, making code cleaner and less error-prone.
+
+Syntax:
+switch(expression) {
+   case value1 -> statement;
+   case value2 -> statement;
+   default -> statement;
+}
+
+Example:
+int day = 3;
+String dayName = switch(day) {
+   case 1 -> "Monday";
+   case 2 -> "Tuesday";
+   case 3 -> "Wednesday";
+   case 4 -> "Thursday";
+   case 5 -> "Friday";
+   case 6 -> "Saturday";
+   case 7 -> "Sunday";
+   default -> "Invalid day";
+};
+System.out.println("Day is: " + dayName);
+
+Flowchart:
+Expression → Match case → Execute statement → Return result
+
+Advantages:
+- No need for break statements
+- Can return values directly
+- More concise and readable
+
+---
+
+🔹 LOOPING STATEMENTS
+
+Definition:
+Loops repeat a block of code until a condition is met.  
+They reduce repetition and automate tasks.
+
+---
+
+1. FOR LOOP
+
+Rule:
+Used when number of iterations is known.
+
+Syntax:
+for(initialization; condition; update) { block }
+
+Example:
+for(int i = 1; i <= 5; i++) {
+   System.out.println("Hello " + i);
+}
+
+Flowchart:
+Start → Check condition → Execute block → Update → Repeat → End
+
+Practice:
+Q: How many times will "Hello" print?
+A: 5 times
+
+---
+
+2. WHILE LOOP
+
+Rule:
+Used when number of iterations is unknown, condition checked first.
+
+Example:
+int i = 1;
+while(i <= 3) {
+   System.out.println("Count: " + i);
+   i++;
+}
+
+Practice:
+Q: What if i = 5 initially?
+A: Loop never runs.
+
+---
+
+3. DO-WHILE LOOP
+
+Rule:
+Runs block at least once, then checks condition.
+
+Example:
+int j = 1;
+do {
+   System.out.println("Number: " + j);
+   j++;
+} while(j <= 3);
+
+Practice:
+Q: j = 5 initially → Output?
+A: Prints "Number: 5" once.
+
+---
+
+4. ENHANCED FOR LOOP (FOR-EACH)
+
+Rule:
+Used to iterate over arrays/collections.
+
+Example:
+int[] nums = {10, 20, 30};
+for(int n : nums) {
+   System.out.println(n);
+}
+
+Practice:
+Q: Output?
+A: 10 20 30
+
+---
+
+BREAK & CONTINUE
+
+break → Exits loop immediately.  
+continue → Skips current iteration, goes to next.
+
+Example:
+for(int k = 1; k <= 5; k++) {
+   if(k == 3) continue;
+   System.out.println(k);
+}
+// Output: 1 2 4 5
+
+---
+
+🔹 DIFFERENCES SUMMARY
+
+IF vs SWITCH:
+- IF → works with ranges/conditions.
+- SWITCH → works with fixed values.
+
+FOR vs WHILE:
+- FOR → known iterations.
+- WHILE → unknown iterations.
+
+WHILE vs DO-WHILE:
+- WHILE → may not run at all.
+- DO-WHILE → runs at least once.
+
+---
+
+END OF NOTES
+
+Conditional statements → Decision making  
+Looping statements → Repetition  
+

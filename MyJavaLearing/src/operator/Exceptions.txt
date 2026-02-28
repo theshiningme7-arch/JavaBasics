@@ -1,0 +1,160 @@
+JAVA EXCEPTIONS & EXCEPTION HANDLING – DETAILED NOTES
+
+---
+
+🔹 WHAT IS AN EXCEPTION?
+
+Definition:
+An exception is an event that occurs during program execution that disrupts the normal flow of instructions.  
+It usually happens due to errors like invalid input, missing files, or division by zero.
+
+Examples:
+- Dividing by zero
+- Accessing an invalid array index
+- Opening a file that does not exist
+
+---
+
+🔹 EXCEPTION HIERARCHY
+
+Throwable (root class)
+   ↳ Error (serious issues, not handled by programs)
+   ↳ Exception (can be handled by programs)
+
+Types of Exceptions:
+1. Checked Exceptions → Checked at compile time (e.g., IOException, SQLException)
+2. Unchecked Exceptions → Occur at runtime (e.g., ArithmeticException, NullPointerException)
+
+---
+
+🔹 WHY EXCEPTION HANDLING?
+
+Purpose:
+- Prevent program crash
+- Provide meaningful error messages
+- Maintain normal flow of program
+
+---
+
+🔹 EXCEPTION HANDLING KEYWORDS
+
+1. try → Block of code that may throw exception
+2. catch → Block that handles exception
+3. finally → Block that always executes (cleanup code)
+4. throw → Used to explicitly throw an exception
+5. throws → Declares exceptions that a method may throw
+
+---
+
+🔹 BASIC FLOW
+
+try {
+   // risky code
+} catch(ExceptionType e) {
+   // handling code
+} finally {
+   // cleanup code
+}
+
+---
+
+🔹 EXAMPLES
+
+1. Try-Catch Example
+class Test {
+   public static void main(String[] args) {
+      int a = 10, b = 0;
+      try {
+         int result = a / b;
+         System.out.println(result);
+      } catch(ArithmeticException e) {
+         System.out.println("Error: Division by zero!");
+      }
+   }
+}
+// Output: Error: Division by zero!
+
+---
+
+2. Finally Block Example
+try {
+   System.out.println("Inside try");
+} catch(Exception e) {
+   System.out.println("Inside catch");
+} finally {
+   System.out.println("Inside finally");
+}
+// Output: Inside try
+//         Inside finally
+
+---
+
+3. Throw Example
+class Test {
+   static void checkAge(int age) {
+      if(age < 18) {
+         throw new ArithmeticException("Not eligible to vote");
+      } else {
+         System.out.println("Eligible to vote");
+      }
+   }
+   public static void main(String[] args) {
+      checkAge(16);
+   }
+}
+// Output: Exception in thread "main" java.lang.ArithmeticException: Not eligible to vote
+
+---
+
+4. Throws Example
+import java.io.*;
+class Test {
+   void readFile() throws IOException {
+      FileReader fr = new FileReader("data.txt");
+   }
+}
+
+---
+
+🔹 DIFFERENCES SUMMARY
+
+Checked Exception → Compile-time, must be handled  
+Unchecked Exception → Runtime, may or may not be handled  
+Error → Serious issue, cannot be recovered  
+
+---
+
+🔹 PRACTICE QUESTIONS
+
+1. True/False
+- Exceptions are objects in Java → True
+- finally block always executes → True
+- Errors can be handled using try-catch → False
+
+---
+
+2. Short Answer
+Q: What is the difference between throw and throws?
+A: throw → used inside method to throw exception  
+   throws → used in method signature to declare exceptions
+
+---
+
+3. Predict the Output
+try {
+   int arr[] = new int[3];
+   arr[5] = 10;
+} catch(ArrayIndexOutOfBoundsException e) {
+   System.out.println("Invalid index!");
+}
+
+Answer → Invalid index!
+
+---
+
+END OF NOTES
+
+Exceptions → Unexpected events during program execution  
+Exception Handling → Mechanism to handle them gracefully  
+
+Together, they ensure Java programs are robust and error-resistant.

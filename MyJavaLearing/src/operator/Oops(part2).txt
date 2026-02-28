@@ -1,0 +1,197 @@
+JAVA ADVANCED OOPS – ASSOCIATION & TYPES
+
+---
+
+🔹 WHAT IS ASSOCIATION?
+
+Definition:
+Association defines a relationship between two classes.  
+It shows how objects of one class are connected to objects of another class.
+
+Purpose:
+- Model real-world relationships
+- Improve modularity
+- Clarify how classes interact
+
+Flowchart:
+Class A ↔ Class B → Relationship established
+
+Example:
+class Student {
+   String name;
+}
+class Course {
+   String title;
+}
+
+Here, Student and Course can be associated (a student enrolls in a course).
+
+---
+
+🔹 TYPES OF ASSOCIATION
+
+1. ONE-TO-ONE
+Definition:
+One object of a class is associated with one object of another class.
+
+Example:
+class Passport {
+   String number;
+}
+class Person {
+   Passport passport;
+}
+
+Flow:
+Person → has → Passport
+
+---
+
+2. ONE-TO-MANY
+Definition:
+One object of a class is associated with many objects of another class.
+
+Example:
+class Teacher {
+   String name;
+}
+class School {
+   List<Teacher> teachers;
+}
+
+Flow:
+School → has many → Teachers
+
+---
+
+3. MANY-TO-ONE
+Definition:
+Many objects of a class are associated with one object of another class.
+
+Example:
+class Employee {
+   String name;
+   Company company;
+}
+class Company {
+   String companyName;
+}
+
+Flow:
+Employees → belong to → One Company
+
+---
+
+4. MANY-TO-MANY
+Definition:
+Many objects of one class are associated with many objects of another class.
+
+Example:
+class Student {
+   List<Course> courses;
+}
+class Course {
+   List<Student> students;
+}
+
+Flow:
+Students ↔ Courses (multiple associations both ways)
+
+---
+
+🔹 SPECIALIZED ASSOCIATION TYPES
+
+1. AGGREGATION
+Definition:
+Represents a "HAS-A" relationship.  
+Child objects can exist independently of parent.
+
+Example:
+class Department {
+   String name;
+}
+class University {
+   List<Department> departments;
+}
+
+Flow:
+University → has → Departments  
+Departments can exist without University.
+
+---
+
+2. COMPOSITION
+Definition:
+Represents a "HAS-A" relationship with strong dependency.  
+Child objects cannot exist without parent.
+
+Example:
+class Engine {
+   String type;
+}
+class Car {
+   Engine engine = new Engine();
+}
+
+Flow:
+Car → has → Engine  
+If Car is destroyed, Engine is destroyed too.
+
+---
+
+🔹 DIFFERENCES SUMMARY
+
+Association → General relationship between classes  
+Aggregation → Weak "HAS-A" relationship (independent existence)  
+Composition → Strong "HAS-A" relationship (dependent existence)
+
+---
+
+🔹 PRACTICE QUESTIONS
+
+1. True/False
+- Aggregation allows independent existence of child objects → True
+- Composition means child cannot exist without parent → True
+- Association only means classes are related → True
+
+---
+
+2. Short Answer
+Q: Which relationship is stronger — Aggregation or Composition?
+A: Composition (child depends on parent).
+
+Q: Give an example of One-to-Many association.
+A: A School has many Teachers.
+
+---
+
+3. Predict the Output:
+class Engine {
+   void start() { System.out.println("Engine started"); }
+}
+class Car {
+   Engine e = new Engine();
+   void drive() {
+      e.start();
+      System.out.println("Car is driving");
+   }
+}
+public class Test {
+   public static void main(String[] args) {
+      Car c = new Car();
+      c.drive();
+   }
+}
+
+Answer:
+Engine started  
+Car is driving
+
+---
+
+END OF NOTES
+
+Association and its types (One-to-One, One-to-Many, Many-to-One, Many-to-Many)  
+Aggregation and Composition (weak vs strong HAS-A relationships)  
+
+These advanced OOP concepts help model real-world relationships between classes and objects in Java.
